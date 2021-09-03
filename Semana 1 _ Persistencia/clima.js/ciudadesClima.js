@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const fetch = require('node-fetch')
+import fetch from 'node-fetch';
 const APIkey = 'c1513656743583242e0f3d410e330fa7';
 const ciudades = ["Roma", "Paris,", "Tokyo", "Moscu", "Chicago", "Boston", "Madrid", "London", "Lima", "BuenosAires"]
 
@@ -39,12 +39,6 @@ async function clima () {
 }
   
 clima();
-
-app.get('/randomCities', (req, res) => {
-  
-
-  res.json(ciudades3)
-})
 
 const port = 3000
 
