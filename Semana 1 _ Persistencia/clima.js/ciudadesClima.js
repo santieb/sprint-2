@@ -20,15 +20,21 @@ const ciudades3 = [
 
 async function clima () {
     
-  for(i=0;i<ciudades3.length;i++){
+  try{
+    for(i=0;i<ciudades3.length;i++){
 
-    ciudad = ciudades3[i].ciudad
-    ciudadAPI = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${APIkey}`
+      ciudad = ciudades3[i].ciudad
+      ciudadAPI = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${APIkey}`
 
-    const response = await fetch(ciudadAPI);
-    const info = await response.json();
-    if (info.main.temp) ciudades3[i].temp = parseFloat(info.main.temp - 273.15).toFixed(2)
+      const response = await fetch(ciudadAPI);
+      const info = await response.json();
+      if (info.main.temp) ciudades3[i].temp = parseFloat(info.main.temp - 273.15).toFixed(2)
+    }
   }
+  catch(error) {
+    ciudades3 = error
+  }
+
 }
 clima ()
 console.log(ciudades3)
