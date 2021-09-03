@@ -1,35 +1,39 @@
-const { json } = require("express");
-
-let searchInput = document.getElementById('search');
-let searchButton = document.getElementById('searchBtn');
-let result = document.getElementById('result');
+let movie = document.getElementById('movie');
+let searchBtn = document.getElementById('searchBtn');
+let image = document.getElementById('image');
+let title= document.getElementById('title');
+let description = document.getElementById('description');
 
 const apikey = `7fb789f2`;
-const theMovie = `the%20forever%20purge`;
+
+movie.value = ""
 
 async function getMovie(title) {
-  let url = `https://omdbapi.com/?apikey=${apikey}&t=${title}`;
 
-  const response = await fetch(url);
-  const data = await response.json();
-  console.log(json)
-  return data;
+
+  try{
+    let url = `https://omdbapi.com/?apikey=${apikey}&t=${title}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    console.log(data.Title)
+    return data;
+  }
+  catch(error) {
+    console.log(error)
+  }
+
 };
 
-let movie = getMovie(theMovie)
-.then(response => console.log(response))
-.catch(error => console.log(error));
-
-let info = movie(movie323);
-info.then(response => {
-    console.log("hoasmcoa")
-  })
 
 
+searchBtn.addEventListener("click", () => {
   
-searchButton.addEventListener('click', () => {
-    let movie = searchInput.value;
-    search(movie);
-    console.log(movie);
+  let movie = movie.value
+  getMovie(movie)
+
 });
+
+
   
