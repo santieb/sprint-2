@@ -27,7 +27,6 @@ async function getMovie(title) {
 };
 
 
-
 searchBtn.addEventListener("click", () => {
   
   let movie = movie.value
