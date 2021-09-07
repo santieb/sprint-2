@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:3000/index')
+mongoose.connect('mongodb://localhost:27017/challenge1')
 
 schema = {name: String, apellido: String, comment : String}
 
@@ -22,6 +22,6 @@ async function lookForJuan() {
     }
     catch(error) {
         console.log(error)
-    }
-      
+    }     
 };
+
