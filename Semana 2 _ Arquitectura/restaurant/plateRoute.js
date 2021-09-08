@@ -17,7 +17,6 @@ app.get('/get', (req, res) => {
 
 
 app.get('/find/:id', functions.validatePlate, (req, res) => {
-
     res.json(functions.findPlate(req.params.id))
 });
 
@@ -28,13 +27,11 @@ app.post('/post', (req, res) => {
 
 
 app.put('/update/:id', functions.validatePlate, (req, res) => {
-
     res.json(functions.updatePlate(req.params.id, req.body))
 });
 
 
 app.delete('/delete/:id', functions.validatePlate, (req, res) => {
-
     res.json(functions.deletePlate(req.params.id))
 });
 
