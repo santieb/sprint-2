@@ -1,5 +1,3 @@
-const content = document.getElementById("result");
-
 const APIkey = 'c1513656743583242e0f3d410e330fa7';
 const ciudades = ["Roma", "Paris,", "Tokyo", "Moscu", "Chicago", "Boston", "Madrid", "London", "Lima", "BuenosAires"]
 
