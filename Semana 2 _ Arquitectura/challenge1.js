@@ -1,7 +1,19 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/challenge1')
 
-schema = {name: String, apellido: String, comment : String}
+const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}
+
+const conectionString = `mongodb://localhost:27017`;
+mongoose.connect(conectionString, options);
+
+
+schema = {
+    name: String,
+    apellido: String,
+    comment : String
+}
 
 const users = mongoose.model('Users', schema);
 
@@ -11,17 +23,14 @@ let newUser = new users(juan)
 newUser.save()
 
 
-
-async function lookForJuan() {
-
-     try{
-        let user = users.find( name => users.name == 'Juan' );
-            
-        console.log(user) = await fetch(user);
-        return data;
+const list = async () => {
+    let response;
+    try {
+        response = await users.find();
+    }catch(err) {
+        response =  err;
     }
-    catch(error) {
-        console.log(error)
-    }     
-};
-
+    console.log(response)
+    return response;
+} 
+list()
