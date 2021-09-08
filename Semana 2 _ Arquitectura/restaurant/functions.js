@@ -73,7 +73,9 @@ const validatePlate = async (req, res, next) => {
     console.log(response)
     res.json(response)
 }
-          
+
+const listDishes = async () => await plate.find();
+
 module.exports = {
     listPlates,
     createPlate,
@@ -81,4 +83,5 @@ module.exports = {
     updatePlate,
     findPlate,
     validatePlate,
+    listDishes
 }
