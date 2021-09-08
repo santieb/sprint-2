@@ -1,16 +1,15 @@
-const e = require('express');
-const { response } = require('express');
+const express = require('express');
 const plate = require('./plateModel');
-const plates = require('./plateModel');
 
 
 const listPlates = async () => {
     let response;
     try {
-        response = await plates.find();
+        response = await plate.find();
     }catch(err) {
         response =  err;
     }
+    console.log(response)
     return response;
 } 
 
@@ -23,6 +22,7 @@ const createPlate = async (body) => {
     } catch(err) {
       response = await err;
     }
+    console.log(response)
     return response;
 }
 
@@ -34,6 +34,7 @@ const updatePlate = async (plateID, body) => {
     } catch(err) {
       response = await err;
     }
+    console.log(response)
     return response;
 }
 
@@ -45,6 +46,7 @@ const deletePlate = async (plateID) => {
     } catch(err) {
       response = await err;
     }
+    console.log(response)
     return response;
 }
 
@@ -55,6 +57,7 @@ const findPlate = async (plateID) => {
     } catch(err) {
       response = await err;
     }
+    console.log(response)
     return response;
 }
 
@@ -67,12 +70,10 @@ const validatePlate = async (req, res, next) => {
     } catch(err) {
       response = await err;
     }
+    console.log(response)
     res.json(response)
 }
           
-
-
-
 module.exports = {
     listPlates,
     createPlate,
