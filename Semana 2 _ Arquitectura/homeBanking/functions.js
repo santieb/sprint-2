@@ -6,6 +6,12 @@ const createUser = async (user) => {
     return response;
 }
 
+const updateBalance = async (req) => await users.findByIdAndUpdate("613a316c8620b383fe9a792b", req.amount);
+
+
+
+
 module.exports = {
     createUser,
+    updateBalance,
 }

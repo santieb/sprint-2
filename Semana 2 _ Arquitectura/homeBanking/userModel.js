@@ -5,7 +5,7 @@ const schemaUser = new Schema({
     name: String,
     lastname: String,
     mail: String,
-    initialBalance: Number
+    balance: Number
 });
 
 const userModel = mongoose.model('users', schemaUser);

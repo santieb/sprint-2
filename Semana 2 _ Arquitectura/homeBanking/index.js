@@ -14,7 +14,7 @@ app.post('/', (req, res) => {
         name: req.body.name,
         lastname: req.body.lastname,
         mail: req.body.mail,
-        initialBalance: req.body.initialBalance
+        balance: req.body.balance
     }
 
     functions.createUser(user)
@@ -22,8 +22,12 @@ app.post('/', (req, res) => {
     .catch(err => res.json(err));
 });
   
+app.put('/balance/:mail', (req, res) => {
 
+    functions.updateBalance(req.body)
+    .then(response => res.json(response))
+    .catch(err => res.json(err));
 
-
+})
 
 app.listen(port, () => console.log(`${host}:${port}`));
