@@ -3,6 +3,8 @@ const app = express();
 const port = 3024;
 const host = 'http://localhost';
 const functions = require('./functions')
+const users = require('./userModel');
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,12 +24,22 @@ app.post('/', (req, res) => {
     .catch(err => res.json(err));
 });
   
-app.put('/balance/:mail', (req, res) => {
+app.put('/balance', functions.mailExist, (req, res) => {
 
-    functions.updateBalance(req.body)
+    functions.modifyBalance(req)
     .then(response => res.json(response))
     .catch(err => res.json(err));
 
 })
+
+app.put('/transfer', functions.mailsExist, (req, res) => {
+
+    functions.transfer(req)
+    .then(response => res.json(response))
+    .catch(err => res.json(err));
+
+})
+
+
 
 app.listen(port, () => console.log(`${host}:${port}`));
