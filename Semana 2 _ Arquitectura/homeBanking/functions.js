@@ -18,7 +18,7 @@ const modifyBalance = async (req) => {
 };
 
 const transfer = async (req) => {
-  let response
+  let response;
 
   const session = await mongoose.startSession();
   session.startTransaction();
@@ -27,7 +27,7 @@ const transfer = async (req) => {
 
   if (aux.balance - req.body.amount < 0) {
     await session.abortTransaction();
-    response = "Insufficient amount"
+    response = "Insufficient amount";
     return response;
   }
 
