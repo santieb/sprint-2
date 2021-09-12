@@ -3,7 +3,6 @@ const app = express();
 const port = 3024;
 const host = "http://localhost";
 const functions = require("./functions");
-const users = require("./userModel");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

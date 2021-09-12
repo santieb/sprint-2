@@ -1,4 +1,4 @@
-const { response } = require("express");
+const mongoose = require("../restaurant/connection");
 const users = require("./userModel");
 
 const createUser = async (user) => {
@@ -18,9 +18,18 @@ const modifyBalance = async (req) => {
 };
 
 const transfer = async (req) => {
+  let response
+
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
   const aux = await users.findOne({ mail: req.body.originMail });
 
-  //if(aux.balance - req.body.amount < 0) abortar session
+  if (aux.balance - req.body.amount < 0) {
+    await session.abortTransaction();
+    response = "Insufficient amount"
+    return response;
+  }
 
   const balance = aux.balance - req.body.amount;
   const res1 = await users.findOneAndUpdate(
@@ -35,7 +44,10 @@ const transfer = async (req) => {
     { balance: balance2 }
   );
 
-  const response = [res1, res2];
+  await session.commitTransaction();
+  session.endSession();
+
+  response = [res1, res2];
   return response;
 };
 
