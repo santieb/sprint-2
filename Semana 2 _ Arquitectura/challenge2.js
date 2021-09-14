@@ -36,4 +36,3 @@ const list = async () => {
   return response;
 };
 list();
-
