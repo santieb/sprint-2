@@ -1,5 +1,3 @@
-
-
 const Mensajemodel = (connection, Sequelize) => {
   const Mensaje = connection.define('mensaje', {
       id_mensaje: {
