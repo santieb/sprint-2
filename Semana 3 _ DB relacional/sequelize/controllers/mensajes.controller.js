@@ -38,9 +38,18 @@ const deleteMessage = async (req) => {
   return result;
 }
 
+const listMessageByUserId = async (req) => {
+  const id_user = req.params.id;
+  const result = await mensajeModel.findAll({
+    where: { id_usuario: id_user }
+  });
+  return result;
+}
+
 module.exports = {
   createMessage,
   listMessage,
   updateMessage,
-  deleteMessage
+  deleteMessage,
+  listMessageByUserId
 }
