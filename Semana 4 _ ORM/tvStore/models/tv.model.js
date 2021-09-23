@@ -1,5 +1,5 @@
 const Televisormodel = (connection, Sequelize) => {
-    const Televisor = connection.define('tienda tv', {
+    const Televisor = connection.define('televisores', {
         id_televisor: {
           type: Sequelize.INTEGER,
           primaryKey: true

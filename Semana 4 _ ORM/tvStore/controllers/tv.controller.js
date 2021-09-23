@@ -2,6 +2,9 @@ require("dotenv").config();
 const Sequelize = require('sequelize');
 const connection = require("../config/db.config");
 const televisorModel = require('../models/tv.model')(connection, Sequelize);
+const marcaModel = require('../models/marcas.model')(connection, Sequelize);
+const modeloModel = require ('../models/modelo.model')(connection, Sequelize);
+
 
 const createTelevisor = async (req) => {
   const newTelevisor = await televisorModel.build({
@@ -46,10 +49,25 @@ const listTelevisorById = async (req) => {
   return result;
 }
 
+const listTelevisorByMarca = async (req) => {
+
+  const marca = req.params.marca;
+
+
+  const result = await modeloModel.findAll({
+    where: {
+      id_marca: marca
+    }
+  });
+
+  return result
+}
+
 module.exports = {
   createTelevisor,
   listTelevisor,
   updateTelevisor,
   deleteTelevisor,
-  listTelevisorById
+  listTelevisorById,
+  listTelevisorByMarca,
 }

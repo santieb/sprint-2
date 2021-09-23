@@ -8,7 +8,6 @@ const connection = new Sequelize(process.env.MYSQL_DB_NAME, process.env.MYSQL_US
     define: {
       freezeTableName: true
     }
-  });
+});
 
-
-  module.exports = connection;
+module.exports = connection;
