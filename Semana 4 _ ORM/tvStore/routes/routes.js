@@ -92,7 +92,7 @@ router.get("/:id", (req, res) => {
 
 router.get("/marca/:marca", (req, res) => {
 
-  televisorController.listTelevisorByMarca(req)
+  televisorController.listTelevisorByIdMarca(req)
   .then((result) => {
     res.status(200).send({
       status: 200,

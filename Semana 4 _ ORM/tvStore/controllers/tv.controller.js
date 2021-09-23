@@ -49,11 +49,8 @@ const listTelevisorById = async (req) => {
   return result;
 }
 
-const listTelevisorByMarca = async (req) => {
-
+const listTelevisorByIdMarca = async (req) => {
   const marca = req.params.marca;
-
-
   const result = await modeloModel.findAll({
     where: {
       id_marca: marca
@@ -63,11 +60,16 @@ const listTelevisorByMarca = async (req) => {
   return result
 }
 
+
+
+
+
+
 module.exports = {
   createTelevisor,
   listTelevisor,
   updateTelevisor,
   deleteTelevisor,
   listTelevisorById,
-  listTelevisorByMarca,
+  listTelevisorByIdMarca,
 }
