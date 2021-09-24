@@ -7,8 +7,7 @@ app.use(express.json());
 
 const televisorRoutes = require("./routes/routes");
 
-app.use('/api/v1/televisores', televisorRoutes);
-
+app.use("/api/v1/televisores", televisorRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
