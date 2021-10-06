@@ -20,11 +20,8 @@ app.post('/login', (req, res) => {
 const authenticateUser = (req, res, next) => {
     try{
         const token = req.headers.authorization.split(' ')[1]
-        const verifyToken = jwt.verify(token, "1234")
-        if(verifyToken) {
-            req.user = verifyToken;
-            return next()
-        }
+        const verifyToken = jwt.verify(token, "12345")
+        if(verifyToken.user == "juan") return next()
     }catch(err) {
         res.json({ error: 'error'})
     }
