@@ -17,6 +17,7 @@
   },
   "homepage": "https://gitlab.com/santieb/sprint-2#readme",
   "dependencies": {
+    "bluebird": "^3.7.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
@@ -28,6 +29,7 @@
     "mysql2": "^2.3.0",
     "node-fetch": "^3.0.0",
     "nodemon": "^2.0.12",
+    "redis": "^3.1.2",
     "sequelize": "^6.6.5"
   }
 }
